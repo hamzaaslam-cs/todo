@@ -1,0 +1,36 @@
+### Register
+POST {{local_url}}api/auth/register
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "hamza",
+  "password": "12345678",
+  "email": "hamza@example.com"
+}
+
+### Login
+POST {{local_url}}api/auth/login
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "hamza@example.com",
+  "password": "12345678"
+}
+
+
+### Forget
+GET {{local_url}}api/auth/forget/test1@example.com
+Content-Type: application/json
+Accept: application/json
+
+### Reset
+POST {{local_url}}api/auth/reset/password
+Content-Type: application/json
+Accept: application/json
+
+{
+  "password": "12345678",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QxQGV4YW1wbGUuY29tIiwiaWF0IjoxNzA0ODIyMTYyLCJleHAiOjE3MDQ5MDg1NjJ9.vtCg3YpzU9L1dTqlwNo_bZE-y5iwMsnxNM6ZUpY5NtY"
+}
