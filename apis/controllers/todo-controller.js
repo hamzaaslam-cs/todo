@@ -1,5 +1,5 @@
 const {StatusCodes} = require('http-status-codes')
-const {createDto, updateDto} = require("../../services/todo-service");
+const {createDto, updateTodo, restoreTodo, deleteTodo} = require("../../services/todo-service");
 
 const store = async (req, res, next) => {
     try {
@@ -12,7 +12,7 @@ const store = async (req, res, next) => {
 
 const update = async (req, res, next) => {
     try {
-        await updateDto(req.validated, req.params.todoId);
+        await updateTodo(req.validated, req.params.todoId);
 
         return res.status(StatusCodes.OK).send(getObjectResponse(true, "Records updated successfully", {}));
     } catch (e) {
@@ -20,5 +20,24 @@ const update = async (req, res, next) => {
     }
 };
 
+const restore = async (req, res, next) => {
+    try {
+        await restoreTodo(req.params.todoId);
 
-module.exports = {store,update}
+        return res.status(StatusCodes.OK).send(getObjectResponse(true, "Records restored successfully", {}));
+    } catch (e) {
+        next(e);
+    }
+};
+
+const deleteTodos = async (req, res, next) => {
+    try {
+        await deleteTodo(req.params.todoId);
+        return res.status(StatusCodes.OK).send(getObjectResponse(true, "Records deleted successfully", {}));
+    } catch (e) {
+        next(e);
+    }
+};
+
+
+module.exports = {store, update, restore, deleteTodos}

@@ -11,13 +11,27 @@ Authorization:{{token}}
 }
 
 ### Update todo
-PUT {{local_url}}api/todos/65abc3576b84fc8f00a7d572
+PUT {{local_url}}api/todos/65abe352badca4e0a106260a
 Content-Type: application/json
 Accept: application/json
 Authorization:{{token}}
 
 {
-  "title": "update task title",
+  "title": "update task title again",
   "description": "Update task",
   "status": 2
 }
+
+### Restore todo
+GET {{local_url}}api/todos/restore/65abe352badca4e0a106260a
+Content-Type: application/json
+Accept: application/json
+Authorization:{{token}}
+
+
+### Delete todo
+DELETE {{local_url}}api/todos/65abe352badca4e0a106260a
+Content-Type: application/json
+Accept: application/json
+Authorization:{{token}}
+

@@ -2,19 +2,18 @@ const Joi = require('joi');
 const {COMPLETED, TODO, IN_PROGRESS} = require('../../enums/todo-statuses')
 const Todo = require("../../models/Todo");
 const {ValidationError} = require("joi");
-const updateTodoValidator = async (req, res, next) => {
+const deleteTodoValidator = async (req, res, next) => {
     try {
         const todoId = req.params.todoId;
-        const todo = await Todo.findById(todoId);
+        const todo = await Todo.findOne({_id:todoId});
         if (empty(todo)) {
             throw new ValidationError('Invalid todoId');
         }
 
-        req.validated = {user_id: req.authUserId}
         next();
     } catch (e) {
         next(e);
     }
 }
 
-module.exports = {updateTodoValidator};
+module.exports = {deleteTodoValidator};
