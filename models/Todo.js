@@ -9,7 +9,7 @@ const Todo = new Schema({
     title: {type: String, required: true},
     description: {type: String, required: true},
     status: {type: Number, required: true, enums: [COMPLETED, IN_PROGRESS, TODO], 'default': TODO},
-    user_id: {
+    userId: {
         type: mongoose.Schema.Types.ObjectId, ref: "user", required: true
     },
     deletedAt: {type: Date, default: null},

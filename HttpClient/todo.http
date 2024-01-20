@@ -5,8 +5,8 @@ Accept: application/json
 Authorization:{{token}}
 
 {
-  "title": "First task title",
-  "description": "This is my first task",
+  "title": "2nd task title",
+  "description": "This is my 2nd task",
   "status": 1
 }
 
@@ -31,6 +31,19 @@ Authorization:{{token}}
 
 ### Delete todo
 DELETE {{local_url}}api/todos/65abe352badca4e0a106260a
+Content-Type: application/json
+Accept: application/json
+Authorization:{{token}}
+
+
+### GET todos
+GET {{local_url}}api/todos
+Content-Type: application/json
+Accept: application/json
+Authorization:{{token}}
+
+### Find todos
+GET {{local_url}}api/todos/65ac1caf0e8877e165eafe5d
 Content-Type: application/json
 Accept: application/json
 Authorization:{{token}}

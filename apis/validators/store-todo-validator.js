@@ -10,7 +10,7 @@ const storeTodoValidator = async (req, res, next) => {
 
         })
         req.validated = await schema.validateAsync(req.body);
-        req.validated = {...req.validated, user_id: req.authUserId}
+        req.validated = {...req.validated, userId: req.authUserId}
         next();
     } catch (e) {
         next(e);

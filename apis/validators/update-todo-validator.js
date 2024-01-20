@@ -10,7 +10,7 @@ const updateTodoValidator = async (req, res, next) => {
             throw new ValidationError('Invalid todoId');
         }
 
-        req.validated = {user_id: req.authUserId}
+        req.validated = {userId: req.authUserId}
         next();
     } catch (e) {
         next(e);
