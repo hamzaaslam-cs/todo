@@ -14,4 +14,4 @@ const User = new Schema({
 // Virtual for book's URL
 
 // Export model
-module.exports =new mongoose.model("User", User);
+module.exports =new mongoose.model("user", User);
