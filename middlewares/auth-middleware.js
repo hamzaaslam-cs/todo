@@ -1,13 +1,12 @@
-const jwt = require('jsonwebtoken');
 const {StatusCodes} = require('http-status-codes');
-const jwtConfig = require('../config/jwt');
 const BaseError = require("../errors/BaseError");
+const {verifyAccessToken} = require("../utils/jwt")
 
 function verifyToken(req, res, next) {
     const token = req.header('Authorization');
     if (!token) return res.status(StatusCodes.UNAUTHORIZED).send(getErrorResponse(new BaseError("Access denied")));
     try {
-        const decoded = jwt.verify(token, jwtConfig.SECRET);
+        const decoded = verifyAccessToken(token);
         req.authUserId = decoded.userId;
         next();
     } catch (error) {

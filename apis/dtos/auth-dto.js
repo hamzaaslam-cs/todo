@@ -3,7 +3,8 @@ module.exports = (data, extras = {}) => {
         'id': data._id,
         'name': data.name,
         'email': data.email,
-        'token': data.token
+        'accessToken': data.accessToken,
+        'refreshToken': data.refreshToken,
     };
     return {...obj, ...extras}
 };

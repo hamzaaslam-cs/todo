@@ -5,7 +5,6 @@ const loginValidator = async (req, res, next) => {
         const schema = Joi.object({
             password: Joi.string().min(6).required(),
             email: Joi.string().email().required(),
-            status:Joi.number().required()
         })
         req.validated = await schema.validateAsync(req.body);
         next();
